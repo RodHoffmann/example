@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+require "open-uri"
+
+nintendo_img = URI.open("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg")
+article = Article.new(title: "NES", body: "A great console")
+article.photo.attach(io: nintendo_img, filename: "nes.jpg", content_type: "image/jpg")
+article.save
